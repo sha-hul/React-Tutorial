@@ -107,7 +107,7 @@ button:hover a{
 
 /* Slot Machine Game */
 
-*{
+/* *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -132,4 +132,69 @@ box-shadow: 0px 0px 10px black;
 }
 .value{
   margin-bottom: 8px;
+} */
+
+
+/*Hooks in React*/
+/* 
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+.header{
+  padding: 15px 10px;
+  text-align: center;
+  background: #eee;
+  box-shadow: 0px 0px 10px #aaa;
+  color: mediumvioletred;
+}
+.count{
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+}
+.count div{
+  background-color: lightcyan;
+  padding: 20px 60px;
+  border-radius: 5%;
+  box-shadow: 1px 8px 10px  black;
+}
+.count h1{
+  text-align: center;
+  margin-bottom: 6px;
+}
+.count button{
+  padding: 4px 6px;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+.count button:hover{
+  color: #eee;
+  background-color: black;
+} */
+
+
+
+/* Digital Clock */
+
+/* in the disital clock folder */
+
+/* React Events */
+
+.button{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: burlywood;
+}
+button{
+  width: 20%;
+  height: 120px;
+  font-size: 50px;
+  cursor: pointer;
 }

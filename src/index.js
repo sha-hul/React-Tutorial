@@ -231,14 +231,38 @@
 
 // slot m/c game
 
+// import React from "react";
+// import  ReactDOM  from "react-dom";
+// import App from "./App";
+// import "./index.css"
+// ReactDOM.render(
+//     <>
+//     <App/>
+//     </>,
+//     document.getElementById('root')
+// )
+
+
+// React Hooks
+
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import App from "./App";
+// import "./index.css";
+// ReactDOM.render(
+//     <App/>,
+//     document.getElementById('root')
+// )
+
+
+// React Event
+
 import React from "react";
-import  ReactDOM  from "react-dom";
+import ReactDOM from "react-dom";
 import App from "./App";
-import "./index.css"
+import "./index.css";
 ReactDOM.render(
-    <>
-    <App/>
-    </>,
+    <App/>,
     document.getElementById('root')
 )
-

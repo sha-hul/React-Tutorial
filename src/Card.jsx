@@ -1,5 +1,5 @@
 import React from "react";
-import Game from "./Game"
+
 let Card=(props)=>(
 <>
 <div className='card'>
