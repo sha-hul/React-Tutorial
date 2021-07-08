@@ -155,35 +155,488 @@
 // export default App;
 
 
-// Actual 
+// Actual React Events
+
+// import React, { useState } from "react";
+// let App=()=>{
+//     let text='life';
+//     let[curText,upText]=useState(text);
+//     let bgcolor='#87a0f9';
+//     let[curColor,upColor]=useState(bgcolor)
+//     console.log(curColor);
+//     let onclick=()=>{
+//         upColor('violet');
+//         upText('Be Aware 🤲')
+//     }
+//     let ondblclick=()=>{
+//         upColor('orange');
+//         upText('Enjoy 😄')
+//     }
+// return(
+//     <>
+//     <div className='events' style={{backgroundColor:curColor}}>
+//     <button onClick={onclick} onDoubleClick={ondblclick}>{curText}</button>
+//     </div>
+//     </>
+// )
+// }
+//  export default App;
+
+// #34 Form Validation 
+
+// import React, { useState } from "react";
+
+// let App=()=>{
+//     let[curValue,upValue]=useState();
+//     let[curText,upText]=useState("");
+//     let inputEvent=(props)=>(
+//         upValue(props.target.value)
+//         )
+//     let onSubmit=(event)=>
+//     {
+//        event.preventDefault();
+//         upText(curValue)
+//     }
+//     console.log("click");
+//     console.log(curValue)
+// return(
+// <>
+// <div className='input-form'>
+// <form onSubmit={onSubmit}>
+// <div>
+// <h1>{curText}</h1>
+// <input type='text' value={curValue} placeholder='Enter your name..' onChange={inputEvent}/>
+// <button  type="submit"> Send 🖐️</button>
+// </div>
+// </form>
+// </div>
+// </>
+// )
+// }
+// export default App;
+
+// #35 login Form
+
+// import React, { useState } from "react";
+// let App=()=>{
+//     let [curValue,upValue]=useState();
+//     let [curText,upText]=useState();
+//     let[curVal,upVal]=useState();
+//     let[curTex,upTex]=useState();
+//     let inputName=(event)=>{
+//         upValue(event.target.value)
+//     }
+//     let inputPassword=(event)=>{
+//         upVal(event.target.value)
+//     }
+//     let show=(event)=>{
+//         event.preventDefault();
+//         upText(curValue);
+//         upTex(curVal);
+//     }
+//     return(
+//         <>
+//         <div className="input-form">
+//         <form onSubmit={show} >
+//             <div>
+//                 <h1>{curText}{curTex}</h1>
+//                 <input type="text" placeholder="Enter the name..." onChange={inputName} />
+//                 <input type="password" placeholder="Enter the password" onChange={inputPassword}/>
+//                 <button type="submit" >Send 🙋 </button>
+//             </div>
+//         </form>
+//         </div>
+//         </>
+//     )
+// }
+
+// export default App;
 
 
-import React,{useState} from 'react';
-let App=()=>
-{
-    let color='red';
-    let word='Shahul';
-     let[curText,upText]=useState(word);
-     let[curColor,updColor]=useState(color);
-     let onclick=()=>{
-         let bg2='yellow';
-         upText('Enimies Ahead');
-         updColor(bg2);
-     }
-     let ondbl=()=>{
-         let bg='violet';
-        upText('Happy Now');
-        updColor(bg);
-    }
-   return (
-    <div id='btn-head' style={{backgroundColor:{curColor}}} className='button'>
-        <button id='btn' onDoubleClick={ondbl} onClick={onclick}>{curText}</button>
+// original method withour spread operator
+
+
+// import React, { useState } from "react";
+// let App=()=>{
+//     let [fullForm,upValue]=useState(
+//         {
+//             fname:"",
+//             lname:"",
+//             email:"",
+//             number:""
+//         }
+//     );
+//    let inputEvent=(event)=>{
+//    var value=event.target.value;
+//    var name=event.target.name;
+//    upValue(
+//        (preValue)=>{
+//            if(name==="fname"){
+//                return{
+//                    fname: value,
+//                    lname : preValue.lname,
+//                    email : preValue.email,
+//                    number : preValue.number
+//                }
+//            }
+//            else if(name==="lname"){
+//             return{
+//                 fname: preValue.fname,
+//                 lname : value,
+//                 email : preValue.email,
+//                 number : preValue.number
+//             }
+//         }
+//         else if(name==="email"){
+//             return{
+//                 fname: preValue.fname,
+//                 lname : preValue.lname,
+//                 email : value,
+//                 number : preValue.number
+//             }
+//         }
+//         else if(name==="number"){
+//             return{
+//                 fname: preValue.fname,
+//                 lname : preValue.lname,
+//                 email : preValue.email,
+//                 number : value
+//             }
+//         }
+//        }
+//    )
+//    }
+//     let onSubmit=(event)=>{
+//         event.preventDefault();
+//     }
+//     return(
+//     <>
+//     <div className="input-form">
+//           <form onSubmit={onSubmit} >  
+//            <div>
+//                 <h1>{fullForm.fname}{fullForm.lname}  </h1>
+//                 <h4>{fullForm.email}</h4>
+//                 <h4>{fullForm.number}</h4>
+//                     <input type="text"
+//                     value={fullForm.fname} 
+//                     name="fname"
+//                     placeholder="Enter the FirstName" 
+//                     onChange={inputEvent}
+//                     />
+//                     <input type="text"
+//                     value={fullForm.lname} 
+//                     name="lname"
+//                      placeholder="Enter the LastName" 
+//                      onChange={inputEvent}
+//                       />
+//                        <input type="email"
+//                     value={fullForm.email} 
+//                     name="email"
+//                      placeholder="Enter the email" 
+//                      onChange={inputEvent}
+//                       />
+//                        <input type="number"
+//                     value={fullForm.number} 
+//                     name="number"
+//                      placeholder="Enter the LastName" 
+//                      onChange={inputEvent}
+//                       />
+//                     <button type="submit" >Send 😄</button>
+//             </div>
+//             </form>
+//     </div>
+//     </>
+//     )
+// }
+// export default App;
+
+
+// using Spread Operator
+
+
+// import React, { useState } from "react";
+// let App=()=>{
+//     let [fullForm,upValue]=useState(
+//         {
+//             fname:"",
+//             lname:"",
+//             email:"",
+//             number:""
+//         }
+//     );
+//    let inputEvent=(event)=>{
+// //    var value=event.target.value;
+// //    var name=event.target.name;
+// const{value,name}=event.target
+//    upValue(
+//        (preValue)=>{
+//            console.log(preValue)
+//            return{
+//                ...preValue,
+//                [name]:value
+//            }
+//        }
+//    )
+//    }
+//     let onSubmit=(event)=>{
+//         event.preventDefault();
+//     }
+//     return(
+//     <>
+//     <div className="input-form">
+//           <form onSubmit={onSubmit} >  
+//            <div>
+//                 <h1>{fullForm.fname}{fullForm.lname}  </h1>
+//                 <h4>{fullForm.email}</h4>
+//                 <h4>{fullForm.number}</h4>
+//                     <input type="text"
+//                     value={fullForm.fname} 
+//                     name="fname"
+//                     placeholder="Enter the FirstName" 
+//                     onChange={inputEvent}
+//                     />
+//                     <input type="text"
+//                     value={fullForm.lname} 
+//                     name="lname"
+//                      placeholder="Enter the LastName" 
+//                      onChange={inputEvent}
+//                       />
+//                        <input type="email"
+//                     value={fullForm.email} 
+//                     name="email"
+//                      placeholder="Enter the email" 
+//                      onChange={inputEvent}
+//                       />
+//                        <input type="number"
+//                     value={fullForm.number} 
+//                     name="number"
+//                      placeholder="Enter the LastName" 
+//                      onChange={inputEvent}
+//                       />
+//                     <button type="submit" >Send 😄</button>
+//             </div>
+//             </form>
+//     </div>
+//     </>
+//     )
+// }
+// export default App;
+
+// Todo list
+
+
+// import React, { useState } from "react";
+// import TodoList from "./TodoList";
+// let App=()=>{
+//     let[setItem,upItem]=useState("");
+//     let[setItem1,upItem1]=useState([]);
+//     let todoList=(event)=>{
+//       upItem(event.target.value)
+//     }
+//     let addItem =(event)=>{
+//        upItem1((oldItems)=>{
+//            return[...oldItems,setItem]
+//        }
+//        )
+//        upItem('')
+//     }
+//     let deleteItem=(id)=>{
+//         console.log("Show")
+//         upItem1((oldItems)=>{
+//             return oldItems.filter((arrElement,index)=>{
+//                 return index != id
+//             });
+//         } )
+//     }
+//     return(
+//         <div className="main">
+//             <div className="center">
+//             <br/>
+//                 <h1>ToDo List</h1>
+//                 <br/>
+//                 <div className="type">
+//                 <input type="text" 
+//                 value={setItem} 
+//                 placeholder="Add a item" 
+//                 onChange={todoList}
+//                 autoComplete='off'
+//                 />
+//                 <button onClick={addItem} className="plus-btn">
+//                     +
+//                 </button>
+//                 </div>
+//                 <ol>
+//                     {
+//                         setItem1.map(
+//                             function(val,index){
+//                             return (<TodoList
+//                             key={index}
+//                             id={index}
+//                             onSelect={deleteItem}
+//                             text={val}/>)
+//                             }
+//                         )
+//                     }
+//                 </ol>
+//             </div>
+//         </div>
+//     )
+// }
+// export default App;
+
+// # To make a counter and with no negatuve value
+
+// import React, { useState } from "react";
+// import AddCircleIcon from '@material-ui/icons/AddCircle';
+// import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+// import Button from '@material-ui/core/Button';
+// import Tooltip from '@material-ui/core/Tooltip';
+// let App=()=>{
+//     let[curValue,upValue]=useState(0);
+//     let increValue=()=>{
+//         upValue(curValue+1)
+//     }
+//     let decreValue=()=>{
+//        if( curValue>0){
+//             upValue(curValue-1)
+//        }
+//         else {
+//             return(alert("The Negative Value Does not Accepted"))
+//         }
+//     }
+//     return(
+//         <>
+//         <h1 className="header">Counter</h1>
+//         <div className="count">
+//             <div>
+//             <h1>{curValue}</h1>
+//             <Tooltip title="Delete">
+//             <Button className="decre" onClick={decreValue}><DeleteTwoToneIcon/></Button>
+//             </Tooltip>
+//             <Tooltip title="Add">
+//             <Button className="incre" onClick={increValue}><AddCircleIcon/></Button>
+//             </Tooltip>
+//             </div>
+//         </div>
+//         </>
+//     )
+// }
+// export default App;
+
+
+// TodoList using the Material UI
+
+// import React, { useState } from "react";
+// import Button from '@material-ui/core/Button';
+// import Card from '@material-ui/core/Card';
+// import AddIcon from '@material-ui/icons/Add';
+// import ToDoList from "./TodoList"
+// let App=()=>{
+//     let[curValue,upValue]=useState("");
+//     let[curItem,upItem]=useState([])
+//     let inputEvent=(event)=>{
+//         upValue(event.target.value)
+//     }
+//     let showItem=()=>{
+//         upItem((oldItem)=>{
+//             return([...oldItem,curValue])
+//         })
+//         upValue(" ")
+//     }
+//     let delItem=()=>{
+//         console.log('delete')
+//     }
+// return(<>
+//         <div className="main">
+//             <Card className="center">
+//             <br/>
+//                 <h1>ToDo List</h1>
+//                 <br/>
+//                 <div className="type">
+//                     <input type="text"  value={curValue} placeholder="Add a item" onChange={inputEvent}/>
+//                     <Button className="plus-btn" onClick={showItem}><AddIcon className="plus-btn"/></Button>
+//                 </div>
+//                 <ol>
+//                     {curItem.map(
+//                        function (val,index){
+//                             return( 
+//                                 <ToDoList
+//                                     text={val}
+//                                     key={index}
+//                                     id={index}
+//                                     onSubmit={delItem}
+//                                 />
+//                                  )
+//                         }
+//                     )}
+//                 </ol>
+//             </Card>
+//         </div>
+//       </>)
+// }
+// export default App;
+
+
+
+// Image next before
+
+// import React, { useState } from "react";
+// import SkipNextIcon from '@material-ui/icons/SkipNext';
+// import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+// import Button from '@material-ui/core/Button';
+// let App=()=>{
+//     var store=['apple','orange','mango','banana']
+// let [curImage,upImage]=useState()
+// let prevImg=()=>{
+//     var store=['apple','orange','mango','banana']
+//     return( upImage(store.curImage[-1]))
+// }
+// let nextImg=()=>{
+//     var store=['apple','orange','mango','banana']
+//     return(upImage(curImage[+1]))
+// }
+// return(
+//     <>
+//     <h1 className="header">Image Slider</h1>
+//     <div className="img_slider">
+//         <div className="center">
+//         <h2>{curImage}</h2> 
+//         <div className="btn">
+//        <Button onClick={prevImg}><SkipPreviousIcon/></Button>
+//        <Button onClick={nextImg}><SkipNextIcon/></Button>
+//        </div>
+//         </div>
+//     </div>
+//     </>
+// )
+// }
+// export default App;
+
+import React from "react";
+import Heading from "./Heading";
+import Footer from "./Footer";
+import Countdown from 'react-countdown';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+let App=()=>{
+    return(
+    <>
+    <div className="keep">
+    <Heading/>
+    <Countdown date={Date.now() + 100000}  />
+    <CountdownCircleTimer
+    isPlaying
+    duration={10}
+    colors={[
+      ['#004777', 0.33],
+      ['#F7B801', 0.33],
+      ['#A30000', 0.33],
+    ]}
+  >
+    {({ remainingTime }) => remainingTime}
+  </CountdownCircleTimer>
+    <Footer/>
     </div>
-)
-    }
+    </>
+    )
+}
 export default App;
-
-
-
-
-

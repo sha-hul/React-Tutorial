@@ -184,17 +184,317 @@ box-shadow: 0px 0px 10px black;
 /* in the disital clock folder */
 
 /* React Events */
+/* *{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.events {
+  width: 100vw;
+  height: 100vh;
+  background-color: "";
+  display: grid;
+ place-content: center;
+}
+.events button{
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 2px double orange;
+  transition: 1s all;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.events button:hover{
+  background-color: black;
+  color: white;
+} */
 
-.button{
+
+/* #34 input form */
+/* 
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.input-form{
+  width: 100vw;
+  height: 100vh;
+  background-color: coral;
+  display: grid;
+  place-items:center;
+}
+.input-form div{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.input-form h1{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow:2px 3px 4px cornsilk;
+}
+.input-form input{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 8px;
+  padding: 6px 20px;
+  color: rgb(46, 209, 46);
+  background-color: blanchedalmond;
+}
+.input-form button{
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 2px double orange;
+  transition: 1s all;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input-form button:hover{
+  background-color: black;
+  color: white;
+} */
+
+
+/* #40 todo list */
+/* 
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.main{
+  background-color: rgba(100, 148, 237, 0.801);
   width: 100vw;
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: burlywood;
+}
+.center{
+  background-color: whitesmoke;
+  width: 26%;
+  height: 74%;
+  margin: auto;
+  border-radius: 5%;
+  box-shadow: 0px 0px 15px black;
+  overflow: auto;
+}
+.center h1{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 5px 4px;
+  text-align: center;
+  text-shadow: 0px 0px 2px;
+}
+input{
+  max-width: 70%;
+  border: none;
+  outline: none;
+  background-color: whitesmoke;
+  border-bottom: 3px solid rgb(211, 70, 211);;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:rgb(211, 70, 211) ;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  place-content: center;
 }
 button{
-  width: 20%;
-  height: 120px;
-  font-size: 50px;
+  border: none;
+  padding: 3px;
+  margin: 3px 0px;
+  background-color: white;
+}
+button:hover{
+  color: red;
+}
+.plus-btn:hover{
+  color: lightgreen;
+}
+input{
+  background-color: white;
+}
+ol{
+  padding: 15px;
+}
+@media only screen and (max-width:800px){
+  .center{
+    background-color: whitesmoke;
+    width: 56%;
+    height: 74%;
+    margin: auto;
+    border-radius: 5%;
+    box-shadow: 0px 0px 15px black;
+  }
+}
+@media only screen and (max-width:500px){
+  .center{
+    background-color: whitesmoke;
+    width: 76%;
+    height: 74%;
+    margin: auto;
+    border-radius: 5%;
+    box-shadow: 0px 0px 15px black;
+  }
+}
+::placeholder{
+  color:rgb(211, 70, 211) ;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.btn-minus{
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(211, 70, 211);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: azure;
+  line-height: 30px;
+  transition: 600ms all;
+  margin-bottom: 4px;
+}
+.btn-minus:hover{
+  background-color: red;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+}
+.list-items{
+  font-size: 1.4rem;
+  margin-left: 6px;
+
+}  */
+
+/* counter with condition */
+
+/* *{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+.header{
+  padding: 15px 10px;
+  text-align: center;
+  background: #eee;
+  box-shadow: 0px 0px 10px #aaa;
+  color: mediumvioletred;
+}
+.count{
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+}
+.count div{
+  background-color: white;
+  padding: 20px 60px;
+  border-radius: 5%;
+  box-shadow: 1px 8px 10px  black;
+  min-width: 30%;
+}
+.count h1{
+  text-align: center;
+  margin-bottom: 6px;
+}
+.count button{
+  box-shadow: 0px 0px 3px;
+  margin: 20px;
+  padding: 4px 6px;
   cursor: pointer;
+  text-align: center;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+@media only screen and (max-width:700px){
+  .count div{
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 5%;
+    box-shadow: 1px 8px 10px  black;
+    min-width: 50%;
+  }
+}
+.incre:hover{
+  color: aquamarine;
+}
+.decre:hover{
+  color: red;
+} */
+
+
+/* Include  */
+/* *{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1{
+  text-align: center;
+  background-color: #eee;
+  box-shadow: 0px 0px 8px;
+  padding: 10px
+}
+.img_slider{
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.center{
+  width: 250px;
+  height: 250px;
+}
+img{
+  width: 100%;
+}
+Button{
+  margin: 20px 30px;
+  text-align: center;
+}
+Button:hover{
+  color: lightgreen;
+}
+.btn
+{
+  text-align: center;
+} */
+
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.header{
+  padding: 15px 8px;
+  background-color: rgba(255, 127, 80, 0.781);
+  box-shadow: 0px 0px 10px ;
+  text-align: left;
+  color: chocolate;
+  text-shadow: 3px 3px 5px;
+}
+.logo{
+  color: chocolate;
+}
+.keep{
+  width:100vw;
+  height: 100vh;
+  position: relative;
+}
+.footer{
+  position: absolute;
+ bottom: 5px;
+ left: 50vw;
 }
