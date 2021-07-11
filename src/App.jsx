@@ -612,31 +612,212 @@
 // }
 // export default App;
 
-import React from "react";
-import Heading from "./Heading";
-import Footer from "./Footer";
-import Countdown from 'react-countdown';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+
+// sunday practice
+
+// import React from "react";
+// let time=new Date().getHours();
+// console.log(time)
+// let greeting;
+// if(time>=0&&time<=12){
+//   greeting="Goood MOrning"
+// }
+// else if(time>=13&&time<=17){
+//   greeting="Goood Afternoon"
+// }
+// else{
+//   greeting="Goood Night"
+// }
+// let App=()=>{
+//     return(
+//     <>
+//     <h1>Hi dude,{greeting}</h1>
+//     </>
+//     )
+// }
+// export default App;
+
+// netflix project
+
+// import React from "react";
+// import Card from '@material-ui/core/Card';
+// import series from "./series";
+// let Series=(props)=>{
+//     return(
+//     <>
+//       <Card style={{width:"200px",padding:"10px"}}>
+//       <img src={props.img}/>
+//       <h4>{props.title}</h4>
+//       <h5>{props.site}</h5>
+//       <button><a href={props.link}>watch</a></button>
+//       </Card>
+//     </>
+//     )
+// }
+// // let shrink=series.map()
+// let short=(val)=>{
+//   return    (<Series
+//   key={val.id}
+//   img={val.img}
+//   title={val.title}
+//   site={val.site}
+//   link={val.link}
+// />)
+// }
+// let App=()=>{
+//     return(
+//     <>
+//   {series.map(short)}
+//     </>
+//     )
+// }
+
+// export default App;
+
+//  digital clock
+
+// import React, { useState } from "react";
+// let App=()=>{
+//   let[curValue,upValue]=useState(new Date().toLocaleTimeString());
+//   let clock=()=>{
+//     upValue(new Date().toLocaleTimeString())
+//   }
+//     setInterval(clock,1000)
+//     return(
+//     <>
+//     <h1>{curValue}</h1>
+//     </>
+//     )
+// }
+// export default App;
+
+// counter increment decrement
+
+// import React, { useState } from "react";
+// let App=()=>{
+//   let[curValue,upValue]=useState(0);
+//   let incre=()=>{
+//     upValue(curValue+1)
+//   }
+//   let reset=()=>{
+//     upValue(0)
+//   }
+//   let decre=()=>{
+//   if 
+//   (curValue>0){
+//     upValue(curValue-1)
+//   }
+//   else{
+//     return alert("This is not permitted")
+//   }
+//   }
+//     return(
+//     <>
+//     <h1>{curValue}</h1>
+//      <button onClick={incre}>+</button>
+//     <button onClick={reset}>Reset</button>
+//     <button onClick={decre}>-</button>
+//     </>
+//     )
+// }
+// export default App;
+
+// import { send } from "q";
+// import React, { useState } from "react";
+// let App=()=>{
+//   let[curValue,upValue]=useState({
+//     fname:"",
+//     lname:""
+//   });
+//   let[curText,upText]=useState();
+//   let inputEvent=(event)=>{
+//     upValue(event.target.value)
+//     upText(curValue);
+//   }
+//   let send=(event)=>{
+//     event.preventDefault();
+//   }
+//   return(
+//   <>
+//   <form onSubmit={send}>
+//   <h1></h1>
+//   <input type="text" name="fname" value={curValue.fname} placeholder="Enter the fname" onChange={inputEvent}/>
+//   <input type="text" name="lname" value={curValue.lname} placeholder="Enter the lname" onChange={inputEvent}/>
+//   <button type="submit">Send</button>
+//   </form>
+//   </>
+//   )
+// }
+// export default App;
+
+//  form Validation
+
+import React, { useState } from "react";
 let App=()=>{
+    let [curValue,upValue]=useState({
+        fname:"",
+        lname:"",
+        email:"",
+        number:""
+    });
+    let [curVal,upVal]=useState(
+        {       
+         fname:"",
+        lname:"",
+        email:"",
+        number:""
+    }
+    );
+    let inputName=(event)=>{
+        let{value,name}=event.target;
+        upValue((preValue)=>{
+            return{
+                ...preValue,
+                [name]:value
+            }
+        })
+    }
+    let show=(event)=>{
+        //for remains stable 
+        event.preventDefault();
+        upVal(curValue)
+    }
     return(
-    <>
-    <div className="keep">
-    <Heading/>
-    <Countdown date={Date.now() + 100000}  />
-    <CountdownCircleTimer
-    isPlaying
-    duration={10}
-    colors={[
-      ['#004777', 0.33],
-      ['#F7B801', 0.33],
-      ['#A30000', 0.33],
-    ]}
-  >
-    {({ remainingTime }) => remainingTime}
-  </CountdownCircleTimer>
-    <Footer/>
-    </div>
-    </>
+        <>
+        <div className="input-form">
+        <form onSubmit={show} >
+            <div>
+                <h1>{curVal.fname} {curVal.lname}</h1>
+                <p>{curVal.email}</p>
+                <p>{curVal.number}</p>
+                <input type="text"
+                 value={curValue.fname}
+                 name="fname"
+                 placeholder="Enter the name..."
+                 onChange={inputName} />
+                <input type="text"
+                 name="lname" 
+                 value={curValue.lname}
+              placeholder="enter your last name..."
+                 onChange={inputName}/>
+                  <input type="text"
+                 autoComplete="off"
+                 value={curValue.email}
+                 name="email"
+                 placeholder="Enter the email..."
+                 onChange={inputName} />
+                  <input type="number"
+                 autoComplete="off"
+                 value={curValue.number}
+                 name="number"
+                 placeholder="Enter the mobile number..."
+                 onChange={inputName} />
+                <button type="submit" >Send 🙋 </button>
+            </div>
+        </form>
+        </div>
+        </>
     )
 }
+
 export default App;
