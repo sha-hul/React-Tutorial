@@ -752,72 +752,173 @@
 
 //  form Validation
 
+// import React, { useState } from "react";
+// let App=()=>{
+//     let [curValue,upValue]=useState({
+//         fname:"",
+//         lname:"",
+//         email:"",
+//         number:""
+//     });
+//     let [curVal,upVal]=useState(
+//         {       
+//          fname:"",
+//         lname:"",
+//         email:"",
+//         number:""
+//     }
+//     );
+//     let inputName=(event)=>{
+//         let{value,name}=event.target;
+//         upValue((preValue)=>{
+//             return{
+//                 ...preValue,
+//                 [name]:value
+//             }
+//         })
+//     }
+//     let show=(event)=>{
+//         //for remains stable 
+//         event.preventDefault();
+//         upVal(curValue)
+//     }
+//     return(
+//         <>
+//         <div className="input-form">
+//         <form onSubmit={show} >
+//             <div>
+//                 <h1>{curVal.fname} {curVal.lname}</h1>
+//                 <p>{curVal.email}</p>
+//                 <p>{curVal.number}</p>
+//                 <input type="text"
+//                  value={curValue.fname}
+//                  name="fname"
+//                  placeholder="Enter the name..."
+//                  onChange={inputName} />
+//                 <input type="text"
+//                  name="lname" 
+//                  value={curValue.lname}
+//               placeholder="enter your last name..."
+//                  onChange={inputName}/>
+//                   <input type="text"
+//                  autoComplete="off"
+//                  value={curValue.email}
+//                  name="email"
+//                  placeholder="Enter the email..."
+//                  onChange={inputName} />
+//                   <input type="number"
+//                  autoComplete="off"
+//                  value={curValue.number}
+//                  name="number"
+//                  placeholder="Enter the mobile number..."
+//                  onChange={inputName} />
+//                 <button type="submit" >Send 🙋 </button>
+//             </div>
+//         </form>
+//         </div>
+//         </>
+//     )
+// }
+
+// export default App;
+
+
+// todo list using materil ui
+
+// import React, { useState } from "react";
+// import AddIcon from '@material-ui/icons/Add';
+// import Kudulist from "./Kudulist"
+// let App=()=>{
+//     let[item,upitem]=useState("");
+//     let[item2,upitem2]=useState([]);
+//     let inputItem=(event)=>{
+//         upitem(event.target.value);
+//     }
+//     let showItem=()=>{
+//         upitem2((preValue)=>{
+//             return[...preValue,item]
+//         })
+//       upitem("")
+//     }
+//     let deleteItem=(id)=>{
+//         upitem2((preValue)=>{
+//             return preValue.filter((arrValue,index)=>{
+//                 return index !== id;
+//             })
+//         })
+//     }
+//     return(
+//     <>
+//     <div className="main">
+//         <div className="center">
+//             <h1>TodoList</h1>
+//             <div className="type">
+//                 <input type="text" value={item} placeholder="Add a item" onChange={inputItem}/>
+//                 <button className="plus-btn" onClick={showItem}><AddIcon/></button>
+//             </div>
+//             <ol>
+//                 {/* <li>{item}</li> */}
+//                 {item2.map((value,index)=>{
+//                 return<Kudulist
+//                 text={value} 
+//                  key={index}  
+//                  id={index} 
+//                  onSubmit={deleteItem}
+//                 />
+//                 })}
+             
+//             </ol>
+//         </div>
+//     </div>
+//     </>
+//     )
+// }
+// export default App;
+
+// TODO List using material UI
+
 import React, { useState } from "react";
+import Card from '@material-ui/core/Card';
+import { Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MaterialTodoList from "./MaterialTodoList"
 let App=()=>{
-    let [curValue,upValue]=useState({
-        fname:"",
-        lname:"",
-        email:"",
-        number:""
-    });
-    let [curVal,upVal]=useState(
-        {       
-         fname:"",
-        lname:"",
-        email:"",
-        number:""
+    let[item,upitem]=useState();
+    let[item2,upitem2]=useState([]);
+    let inputValue=(event)=>{
+        upitem(event.target.value)
     }
-    );
-    let inputName=(event)=>{
-        let{value,name}=event.target;
-        upValue((preValue)=>{
-            return{
-                ...preValue,
-                [name]:value
-            }
+    let addItem=()=>{
+        upitem2((oldItem)=>{
+            return([...oldItem,item])
         })
-    }
-    let show=(event)=>{
-        //for remains stable 
-        event.preventDefault();
-        upVal(curValue)
+        upitem("")
     }
     return(
-        <>
-        <div className="input-form">
-        <form onSubmit={show} >
-            <div>
-                <h1>{curVal.fname} {curVal.lname}</h1>
-                <p>{curVal.email}</p>
-                <p>{curVal.number}</p>
-                <input type="text"
-                 value={curValue.fname}
-                 name="fname"
-                 placeholder="Enter the name..."
-                 onChange={inputName} />
-                <input type="text"
-                 name="lname" 
-                 value={curValue.lname}
-              placeholder="enter your last name..."
-                 onChange={inputName}/>
-                  <input type="text"
-                 autoComplete="off"
-                 value={curValue.email}
-                 name="email"
-                 placeholder="Enter the email..."
-                 onChange={inputName} />
-                  <input type="number"
-                 autoComplete="off"
-                 value={curValue.number}
-                 name="number"
-                 placeholder="Enter the mobile number..."
-                 onChange={inputName} />
-                <button type="submit" >Send 🙋 </button>
-            </div>
-        </form>
+    <>
+    <div className="main">
+    <Card className="center">
+        <h1>ToDo List</h1>
+        <div className="type">
+            <input type="text" value={item} placeholder="Add an item" onChange={inputValue}/>
+            <Button onClick={addItem}>
+                <AddIcon/>
+            </Button>
         </div>
-        </>
+        <ol>
+            {/* <li>{item}</li> */}
+            {item2.map((val,index)=>{
+                return <MaterialTodoList
+                    text={val}
+                    id={index}
+                    key={index}
+                />
+            })}
+        </ol>
+    </Card>
+    </div>
+    </>
     )
 }
-
 export default App;
