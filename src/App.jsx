@@ -877,48 +877,120 @@
 
 // TODO List using material UI
 
-import React, { useState } from "react";
-import Card from '@material-ui/core/Card';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import MaterialTodoList from "./MaterialTodoList"
-let App=()=>{
-    let[item,upitem]=useState();
-    let[item2,upitem2]=useState([]);
-    let inputValue=(event)=>{
-        upitem(event.target.value)
-    }
-    let addItem=()=>{
-        upitem2((oldItem)=>{
-            return([...oldItem,item])
-        })
-        upitem("")
-    }
-    return(
-    <>
-    <div className="main">
-    <Card className="center">
-        <h1>ToDo List</h1>
-        <div className="type">
-            <input type="text" value={item} placeholder="Add an item" onChange={inputValue}/>
-            <Button onClick={addItem}>
-                <AddIcon/>
-            </Button>
-        </div>
-        <ol>
-            {/* <li>{item}</li> */}
-            {item2.map((val,index)=>{
-                return <MaterialTodoList
-                    text={val}
-                    id={index}
-                    key={index}
-                />
-            })}
-        </ol>
-    </Card>
-    </div>
-    </>
+// import React, { useState } from "react";
+// import Card from '@material-ui/core/Card';
+// import { Button } from '@material-ui/core';
+// import AddIcon from '@material-ui/icons/Add';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import MaterialTodoList from "./MaterialTodoList"
+// let App=()=>{
+//     let[item,upitem]=useState();
+//     let[item2,upitem2]=useState([]);
+//     let inputValue=(event)=>{
+//         upitem(event.target.value)
+//     }
+//     let addItem=()=>{
+//         upitem2((oldItem)=>{
+//             return([...oldItem,item])
+//         })
+//         upitem("")
+//     }
+//     return(
+//     <>
+//     <div className="main">
+//     <Card className="center">
+//         <h1>ToDo List</h1>
+//         <div className="type">
+//             <input type="text" value={item} placeholder="Add an item" onChange={inputValue}/>
+//             <Button onClick={addItem}>
+//                 <AddIcon/>
+//             </Button>
+//         </div>
+//         <ol>
+//             {/* <li>{item}</li> */}
+//             {item2.map((val,index)=>{
+//                 return <MaterialTodoList
+//                     text={val}
+//                     id={index}
+//                     key={index}
+//                 />
+//             })}
+//         </ol>
+//     </Card>
+//     </div>
+//     </>
+//     )
+// }
+// export default App;
+
+// React Axios API pokemon
+
+// using the fetch API MY Try
+
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// const App = () => {
+//     let[curValue,upValue]=useState("Select a Number");
+//     useEffect(()=>{
+//         fetch("https://jsonplaceholder.typicode.com/users")
+//         .then((response)=>response.json())
+//         .then((data)=>console.log(data[curValue].name))
+//         .catch((notFound)=>"Data Not Found (404)");
+//     },[curValue])
+//     return (
+//      <>
+//      <h1>{curValue}</h1>
+//         <select onChange={(event)=>{
+//             upValue(event.target.value);
+//         }} value={curValue}>
+//             <option value="1">1</option>
+//             <option value="2">2</option>
+//             <option value="3">3</option>
+//             <option value="4">4</option>
+//             <option value="5">5</option>
+//         </select>
+//      </>
+//     )
+// }
+// export default App;
+
+// Axios using Async and await
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+const App = () => {
+    let[curValue,upValue]=useState();
+    let[name,setName]=useState();
+    let[moves,setMoves]=useState();
+    let[moves1,setMoves1]=useState();
+    useEffect(()=>{
+        async function getData(){
+            const res =await axios.get(`https://pokeapi.co/api/v2/pokemon/${curValue}`)
+            console.log(res.data);
+            setName(res.data.name);
+            setMoves(res.data.moves.length)
+            setMoves1(res.data.moves[0].move.name)
+        }
+        getData();
+    },[curValue])
+    return (
+     <>
+          <h1>The Character Name : <span style={{color:"red"}} >{name}</span></h1>
+          <h1>The Character Moves : <span style={{color:"red"}} >{moves}</span></h1>
+          <h1>The Character Move 1 : <span style={{color:"red"}} >{moves1}</span></h1>
+         <h1>The Character ID : <span style={{color:"red"}} >{curValue}</span></h1>
+        <select onChange={(event)=>{
+            upValue(event.target.value);
+        }} value={curValue}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="25">25</option>
+        </select>
+     </>
     )
 }
 export default App;
